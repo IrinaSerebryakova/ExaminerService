@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class QuestionData {
+
     public static List<Question> questionJavaData = new ArrayList<>(List.of(
             new Question("Назовите концепции объектно-ориентированного программирования JAVA",
                     "Наследование, инкапсуляция, полиморфизм, абстракция"),

@@ -4,12 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static pro.sky.java.course2.examinerservice.QuestionTestConstants.ANSWER;
 import static pro.sky.java.course2.examinerservice.QuestionTestConstants.QUESTION;
-
 class ExaminerServiceImplTest {
     private final List<Question> examinerQuestions = new ArrayList<>();
     private final QuestionService questionService;

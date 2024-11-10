@@ -1,7 +1,6 @@
 package pro.sky.java.course2.examinerservice;
 
 import java.util.List;
-
 public interface QuestionService{
     Question add(String question, String answer);
     Question add(Question question);
