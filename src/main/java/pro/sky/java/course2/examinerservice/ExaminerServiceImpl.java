@@ -5,11 +5,9 @@ import pro.sky.java.course2.examinerservice.exception.QuestionAlreadyAddedExcept
 import pro.sky.java.course2.examinerservice.exception.QuestionAndAnswerHaveTheSameMeaningException;
 import pro.sky.java.course2.examinerservice.exception.QuestionDoNotExistException;
 import pro.sky.java.course2.examinerservice.exception.RequestedMoreQuestionsThanExistInServiceException;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 
 @Service
 public class ExaminerServiceImpl implements ExaminerService, QuestionService {

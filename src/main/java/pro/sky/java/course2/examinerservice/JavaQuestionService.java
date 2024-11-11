@@ -8,7 +8,6 @@ import pro.sky.java.course2.examinerservice.exception.QuestionDoNotExistExceptio
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 @Service
 public class JavaQuestionService implements QuestionService {
     List<Question> javaQuestions = new ArrayList<>();

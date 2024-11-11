@@ -12,12 +12,9 @@ import java.util.List;
 @RequestMapping("/exam/get")
 public class ExamController {
     private final ExaminerServiceImpl examinerService;
-
     public ExamController(ExaminerServiceImpl examinerService) {
         this.examinerService = examinerService;
     }
-
-
 
     public List<Question> getQuestions(@RequestParam("amount") int amount) throws RequestedMoreQuestionsThanExistInServiceException {
         return examinerService.getQuestions(amount);

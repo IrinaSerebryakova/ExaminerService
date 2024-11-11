@@ -10,14 +10,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/exam/java")
 public class JavaQuestionController{
-
     private final JavaQuestionService javaQuestionService;
 
     public JavaQuestionController(JavaQuestionService javaQuestionService){
         this.javaQuestionService = javaQuestionService;
 
     }
-
     @GetMapping("/add")
     public Question addQuestion(@RequestParam("question") String question, @RequestParam ("answer") String answer){
         return javaQuestionService.add(question, answer);
