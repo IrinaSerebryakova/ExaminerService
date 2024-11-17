@@ -1,4 +1,4 @@
-package pro.sky.java.course2.examinerservice;
+package pro.sky.java.course2.examinerservice.model;
 
 import java.util.Objects;
 
