@@ -6,21 +6,22 @@ import static org.junit.jupiter.api.Assertions.*;
 import static pro.sky.java.course2.examinerservice.QuestionTestConstants.*;
 
 import pro.sky.java.course2.examinerservice.exception.QuestionAlreadyAddedException;
-import pro.sky.java.course2.examinerservice.exception.QuestionAndAnswerHaveTheSameMeaningException;
 import pro.sky.java.course2.examinerservice.exception.QuestionDoNotExistException;
+import pro.sky.java.course2.examinerservice.model.Question;
+import pro.sky.java.course2.examinerservice.service.impl.JavaQuestionServiceImpl;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
-class JavaQuestionServiceTest {
-    JavaQuestionService testJavaService = new JavaQuestionService();
+public class JavaQuestionServiceTest {
+    private final JavaQuestionServiceImpl testJavaService = new JavaQuestionServiceImpl();
     @Test
     public void shouldAddQuestionIfDoNotExist() {
+        assertTrue(testJavaService.getAll().isEmpty());
         Question actual = testJavaService.add(QUESTION, ANSWER);
 
         assertEquals(actual.getQuestion(), QUESTION);
         assertEquals(actual.getAnswer(), ANSWER);
+        assertTrue(!testJavaService.getAll().isEmpty());
     }
 
     @Test
@@ -30,6 +31,7 @@ class JavaQuestionServiceTest {
 
         assertEquals(actual.getQuestion(), remove.getQuestion());
         assertEquals(actual.getAnswer(), remove.getAnswer());
+        assertTrue(testJavaService.getAll().isEmpty());
     }
 
     @Test
@@ -50,18 +52,12 @@ class JavaQuestionServiceTest {
                 () -> testJavaService.add(actual));
     }
 
-
-    @Test
-    public void tryAddWrongQuestionShouldThrowQuestionAndAnswerHaveTheSameMeaningException() {
-        assertThrows(QuestionAndAnswerHaveTheSameMeaningException.class,
-                () -> testJavaService.add(testJavaService.add(QUESTION, QUESTION)));
-    }
-
     @Test
     public void tryGetRandomQuestionWithGoodResult() {
         Random r = new Random();
-        Question randomQuestion = QUESTION_JAVA_DATA.get(r.nextInt(QUESTION_JAVA_DATA.size()));
-
+        Question randomQuestion = QUESTION_JAVA_DATA.stream().toList().get(r.nextInt(QUESTION_JAVA_DATA.size()));
+        testJavaService.add(randomQuestion);
         assertTrue(QUESTION_JAVA_DATA.contains(randomQuestion));
-        }
+        assertTrue(!testJavaService.getAll().isEmpty());
     }
+        }
